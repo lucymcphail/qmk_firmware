@@ -1,0 +1,11 @@
+COMBO_ENABLE = yes
+CAPS_WORD_ENABLE = yes
+RGBLIGHT_ENABLE = no
+
+# Extra features that are nice but takes space
+WPM_ENABLE = no
+MOUSEKEY_ENABLE = no
+KEY_OVERRIDE_ENABLE = no
+LEADER_ENABLE = no
+TAP_DANCE_ENABLE = no
+RGB_MATRIX_ENABLE = no
