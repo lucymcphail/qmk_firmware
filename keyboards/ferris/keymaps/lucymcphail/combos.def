@@ -1,0 +1,30 @@
+// right top row
+COMB(del, KC_DEL, KC_U, KC_Y)
+
+// left homerow
+COMB(lctl, OSM(MOD_LCTL), KC_R, KC_S)
+COMB(esc, KC_ESC, KC_S, KC_T)
+COMB(lcltalt, OSM(MOD_LCTL | MOD_LALT), KC_R, KC_S, KC_T)
+// right homerow
+COMB(rcltalt, OSM(MOD_LCTL | MOD_LALT), KC_N, KC_E, KC_I)
+COMB(tab, KC_TAB, KC_N, KC_E)
+COMB(rctl, OSM(MOD_LCTL), KC_E, KC_I)
+// split homerow
+COMB(capsword, CW_TOGG, KC_T, KC_N)
+
+// right bottom row
+COMB(lalt, OSM(MOD_LALT), KC_X, KC_C)
+COMB(lgui, OSM(MOD_LGUI), KC_C, KC_D)
+// left bottom row
+COMB(rgui, OSM(MOD_LGUI), KC_H, KC_COMM)
+COMB(ralt, OSM(MOD_LALT), KC_COMM, KC_DOT)
+
+// top left
+SUBS(lt_eq,             "<=",           KC_S, KC_F)
+SUBS(small_left_arrow,  "<-",           KC_T, KC_P)
+// top right
+SUBS(small_right_arrow, "->",           KC_N, KC_L)
+SUBS(large_right_arrow, "=>",           KC_E, KC_U)
+SUBS(pipe_to,           "|>",           KC_I, KC_Y)
+// bottom left
+SUBS(gt_eq,             ">=",           KC_D, KC_T)

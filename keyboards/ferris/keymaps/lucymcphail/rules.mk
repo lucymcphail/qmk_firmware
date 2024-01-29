@@ -2,7 +2,10 @@ COMBO_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 RGBLIGHT_ENABLE = no
 
-# Extra features that are nice but takes space
+# allow easier combo definitions
+VPATH += keyboards/gboards
+
+# disable extra features I don't use
 WPM_ENABLE = no
 MOUSEKEY_ENABLE = no
 KEY_OVERRIDE_ENABLE = no
