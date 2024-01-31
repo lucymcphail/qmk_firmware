@@ -20,6 +20,9 @@ COMB(lgui, OSM(MOD_LGUI), KC_C, KC_D)
 COMB(rgui, OSM(MOD_LGUI), KC_H, KC_COMM)
 COMB(ralt, OSM(MOD_LALT), KC_COMM, KC_DOT)
 
+// thumb keys
+COMB(numword, NUMWORD, LT_HM, RT_HM)
+
 // Numbers with cross side thumb
 COMB(comb_6,            UK_6,           RT_HM, UK_A)
 COMB(comb_4,            UK_4,           RT_HM, UK_R)

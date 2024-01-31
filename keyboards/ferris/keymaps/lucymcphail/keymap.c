@@ -3,20 +3,8 @@
 #include "keymap_uk.h"
 #include "sendstring_uk.h"
 
-enum layers { BASE, SYM, NUM, FUN, NAV, GAME };
-
-#define xxxxxxx KC_NO
-
-#define LT_OT LT(NAV, KC_BSPC)
-#define LT_HM LT(SYM, KC_SPC)
-#define RT_HM OSM(MOD_LSFT)
-#define RT_OT LT(NUM, KC_ENT)
-
-#define TB_PREV LCTL(LSFT(KC_TAB))
-#define TB_NEXT LCTL(KC_TAB)
-#define WS_PREV LGUI(KC_PGUP)
-#define WS_NEXT LGUI(KC_PGDN)
-#define ALT_TAB LALT(KC_TAB)
+#include "keycodes.h"
+#include "numword.h"
 
 #include "g/keymap_combo.h"
 
@@ -35,11 +23,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                KC_TRNS, KC_TRNS,      KC_SPC,  KC_ENT
   ),
 
+  // [NUM] = LAYOUT(
+  //   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_TRNS,      KC_TRNS, UK_4,    UK_5,    UK_6,    UK_DOT,
+  //   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_TRNS,      KC_0,    UK_1,    UK_2,    UK_3,    UK_MINS,
+  //   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_TRNS,      KC_TRNS, UK_7,    UK_8,    UK_9,    KC_TRNS,
+  //                              KC_ENT,  KC_SPC,       KC_TRNS, KC_TRNS
+  // ),
+
   [NUM] = LAYOUT(
-    KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_TRNS,      KC_TRNS, UK_4,    UK_5,    UK_6,    UK_DOT,
-    KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_TRNS,      KC_0,    UK_1,    UK_2,    UK_3,    UK_MINS,
-    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_TRNS,      KC_TRNS, UK_7,    UK_8,    UK_9,    KC_TRNS,
-                               KC_ENT,  KC_SPC,       KC_TRNS, KC_TRNS
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS, UK_EQL,  UK_MINS, UK_PLUS, UK_PERC,
+    UK_6,    UK_4,    UK_0,    UK_2,    NUM_G,        KC_TRNS, UK_3,    UK_1,    UK_5,    UK_7,
+    KC_TRNS, KC_TRNS, KC_TRNS, UK_8,    KC_TRNS,      KC_TRNS, UK_9,    KC_TRNS, KC_TRNS, KC_TRNS,
+                               KC_TRNS, KC_TRNS,      KC_TRNS, KC_TRNS
+  ),
+
+  [FUN] = LAYOUT(
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_F6,   KC_F4,   KC_F10,  KC_F2,   KC_F12,       KC_F11,  KC_F3,   KC_F1,   KC_F5,   KC_F7,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_F8,   KC_TRNS,      KC_TRNS, KC_F9,   KC_TRNS, KC_TRNS, KC_TRNS,
+                               KC_TRNS, KC_TRNS,      KC_TRNS, KC_TRNS
   ),
 
   [NAV] = LAYOUT(
@@ -56,6 +58,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 KC_ENT,  KC_SPC,      KC_TRNS, KC_TRNS
   ),
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!process_num_word(keycode, record)) {
+        return false;
+    }
+
+    switch (keycode) {
+        case NUMWORD:
+            if (record->event.pressed) {
+                enable_num_word();
+            }
+            return false;
+        case NUM_G:
+            if (record->event.pressed) {
+                tap_code16(S(UK_G));
+            }
+            return false;
+    }
+
+    return true;
+}
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
     /* disable combos on gaming layer */
