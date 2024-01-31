@@ -3,12 +3,13 @@ COMB(del, KC_DEL, KC_U, KC_Y)
 
 // left homerow
 COMB(lctl, OSM(MOD_LCTL), KC_R, KC_S)
-COMB(esc, KC_ESC, KC_S, KC_T)
+COMB(tab, KC_TAB, KC_S, KC_T)
 COMB(lcltalt, OSM(MOD_LCTL | MOD_LALT), KC_R, KC_S, KC_T)
 // right homerow
 COMB(rcltalt, OSM(MOD_LCTL | MOD_LALT), KC_N, KC_E, KC_I)
-COMB(tab, KC_TAB, KC_N, KC_E)
+COMB(esc, KC_ESC, KC_N, KC_E)
 COMB(rctl, OSM(MOD_LCTL), KC_E, KC_I)
+SUBS(save_vim, "\e:w\n", KC_N, KC_E, KC_I, KC_O)
 // split homerow
 COMB(capsword, CW_TOGG, KC_T, KC_N)
 
@@ -18,6 +19,53 @@ COMB(lgui, OSM(MOD_LGUI), KC_C, KC_D)
 // left bottom row
 COMB(rgui, OSM(MOD_LGUI), KC_H, KC_COMM)
 COMB(ralt, OSM(MOD_LALT), KC_COMM, KC_DOT)
+
+// Numbers with cross side thumb
+COMB(comb_6,            UK_6,           RT_HM, UK_A)
+COMB(comb_4,            UK_4,           RT_HM, UK_R)
+COMB(comb_0,            UK_0,           RT_HM, UK_S)
+COMB(comb_2,            UK_2,           RT_HM, UK_T)
+COMB(comb_8,            UK_8,           RT_HM, UK_D)
+COMB(comb_9,            UK_9,           LT_HM, UK_H)
+COMB(comb_3,            UK_3,           LT_HM, UK_N)
+COMB(comb_1,            UK_1,           LT_HM, UK_E)
+COMB(comb_5,            UK_5,           LT_HM, UK_I)
+COMB(comb_7,            UK_7,           LT_HM, UK_O)
+
+// top row left symbols
+COMB(hash, UK_HASH, LT_HM, UK_Q)
+COMB(bsls, UK_BSLS, LT_HM, UK_W)
+COMB(ampr, UK_AMPR, LT_HM, UK_F)
+COMB(astr, UK_ASTR, LT_HM, UK_P)
+// middle row left symbols
+COMB(circ, UK_CIRC, LT_HM, UK_A)
+COMB(lcbr, UK_LCBR, LT_HM, UK_R)
+COMB(rcbr, UK_RCBR, LT_HM, UK_S)
+COMB(dlr, UK_DLR, LT_HM, UK_T)
+COMB(not, UK_NOT, LT_HM, UK_G)
+// bottom row left symbols
+COMB(exlm, UK_EXLM, LT_HM, UK_Z)
+COMB(lbrc, UK_LBRC, LT_HM, UK_X)
+COMB(rbrc, UK_RBRC, LT_HM, UK_C)
+COMB(dquo, UK_DQUO, LT_HM, UK_D)
+COMB(pnd, UK_PND, LT_HM, UK_V)
+// top row right symbols
+COMB(eql,  UK_EQL,  RT_HM, UK_L)
+COMB(mins, UK_MINS, RT_HM, UK_U)
+COMB(plus, UK_PLUS, RT_HM, UK_Y)
+COMB(perc, UK_PERC, RT_HM, UK_QUOT)
+// middle row right symbols
+COMB(grv,  UK_GRV,  RT_HM, UK_M)
+COMB(unds, UK_UNDS, RT_HM, UK_N)
+COMB(lprn, UK_LPRN, RT_HM, UK_E)
+COMB(rprn, UK_RPRN, RT_HM, UK_I)
+COMB(scln, UK_SCLN, RT_HM, UK_O)
+// bottom row right symbols
+COMB(pipe, UK_PIPE, RT_HM, UK_K)
+COMB(tild, UK_TILD, RT_HM, UK_H)
+COMB(labk, UK_LABK, RT_HM, UK_COMM)
+COMB(rabk, UK_RABK, RT_HM, UK_DOT)
+COMB(coln, UK_COLN, RT_HM, UK_SLSH)
 
 // top left
 SUBS(lt_eq,             "<=",           KC_S, KC_F)
